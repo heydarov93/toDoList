@@ -47,6 +47,10 @@ body {
   padding-right: 3.2rem;
 }
 
+.sort-icon {
+  cursor: pointer;
+}
+
 .sort-icon rect,
 .sort-icon path {
   transition: all 0.3s ease;
@@ -55,6 +59,10 @@ body {
 .sort-icon:hover rect,
 .sort-icon:hover path {
   fill: #000;
+}
+
+.sort-icon:active {
+  transform: scale(0.98);
 }
 
 .toDo-form {
@@ -99,7 +107,7 @@ body {
 .delete-svg rect,
 .delete-svg path {
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: fill, stroke 0.3s ease;
   fill: #fff;
 }
 
@@ -109,11 +117,15 @@ body {
   stroke: #fff;
 }
 
-.sendBtn-box {
+.delete-svg:active {
+  transform: scale(0.7);
+}
+
+.addBtn-box {
   text-align: center;
 }
 
-.send-btn {
+.add-btn {
   margin: 0 auto;
   width: 15rem;
   height: 4.2rem;
@@ -131,6 +143,21 @@ body {
   align-items: center;
 
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.add-btn:hover {
+  background-color: #7133c3;
+}
+
+.add-btn:hover .plus-icon {
+  background-color: #8646d3;
+}
+
+.add-btn:active,
+.add-btn:active .plus-icon {
+  transform: scale(0.98);
 }
 
 .plus-icon {
@@ -141,9 +168,11 @@ body {
   justify-content: center;
   background-color: #9953f1;
   border-radius: 50%;
+
+  transition: background-color 0.3s ease;
 }
 
-.sendBtn-text {
+.addBtn-text {
   padding-right: 2.4rem;
   letter-spacing: 0.08rem;
 }
