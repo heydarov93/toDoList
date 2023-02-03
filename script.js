@@ -1,10 +1,12 @@
 const btnadd = document.querySelector("#addBtn");
-const listConatiner = document.querySelector("#listContainer");
+const listContainer = document.querySelector("#listContainer");
 const btnDeleteDefault = document.querySelector(".delete");
 const sortIcon = document.querySelector(".sort-icon");
 btnDeleteDefault.addEventListener("click", (e) => {
   e.preventDefault();
 });
+
+setDragDrop(document.querySelector('.input-box'));
 
 const addNewOrder = (e) => {
   e.preventDefault();
@@ -21,9 +23,11 @@ const addNewOrder = (e) => {
   newDeleteButton.classList.add("delete");
 
   // append elements
-  listConatiner.append(newInputBox);
-  newInputBox.append(newInput);
-  newInputBox.append(newDeleteButton);
+  listContainer.append(newInputBox);
+  newInputBox.append(newInput, newDeleteButton);
+
+  setDragDrop(newInputBox)
+
   newDeleteButton.innerHTML = `<svg class="delete-svg"
         width="20"
         height="20"
@@ -49,27 +53,33 @@ const addNewOrder = (e) => {
   btnsDelete.forEach((btnDel) => {
     btnDel.addEventListener("click", (e) => {
       e.preventDefault();
-      if (listConatiner.children.length > 1) btnDel.parentElement.remove();
+      if (listContainer.children.length > 1) btnDel.parentElement.remove();
       else btnDel.parentElement.firstElementChild.value = "";
     });
   });
+
+  /////////////////
+  // const listContainerChilds = Array.from(listContainer.children);
+
+
 };
 
 btnadd.addEventListener("click", addNewOrder);
 
+// Sort orders
 sortIcon.addEventListener("click", (e) => {
-  const listContainerChilds = Array.from(listConatiner.children);
+  const listContainerChilds = Array.from(listContainer.children);
 
-  if (listConatiner.dataset.sort === "asc") {
-    changeSortIcon('asc')
-    listConatiner.dataset.sort = "desc";
+  if (listContainer.dataset.sort === "asc") {
+    changeSortIcon("asc");
+    listContainer.dataset.sort = "desc";
     listContainerChilds.sort((a, b) => {
       if (a.firstElementChild.value > b.firstElementChild.value) return 1;
       else return -1;
     });
-  } else if (listConatiner.dataset.sort === "desc") {
-    changeSortIcon('desc')
-    listConatiner.dataset.sort = "asc";
+  } else if (listContainer.dataset.sort === "desc") {
+    changeSortIcon("desc");
+    listContainer.dataset.sort = "asc";
 
     listContainerChilds.sort((a, b) => {
       if (a.firstElementChild.value > b.firstElementChild.value) return -1;
@@ -78,10 +88,11 @@ sortIcon.addEventListener("click", (e) => {
   }
 
   listContainerChilds.forEach((e) => {
-    listConatiner.appendChild(e);
+    listContainer.appendChild(e);
   });
 });
 
+// function for change sort icon
 function changeSortIcon(dir) {
   if (dir === "desc") {
     sortIcon.innerHTML = `<rect x="2.5" width="2.5" height="12.5" fill="#C4C4C4" />
@@ -123,4 +134,38 @@ function changeSortIcon(dir) {
     <path d="M3.75 6.55671e-07L6.99759 4.6875L0.502404 4.6875L3.75 6.55671e-07Z" fill="#C4C4C4"/>
     `;
   }
+}
+
+// Drag & Drop
+function setDragDrop(el)  {
+  el.setAttribute("draggable", true);
+  const randomId1 = Math.floor(Math.random() * 10000) + 1;
+  const randomId2 = Math.floor(Math.random() * 10000) + 1;
+  const randomId3 = Math.floor(Math.random() * 10000) + 1;
+
+  const id = `${randomId1}${randomId2}${randomId3}`;
+  el.setAttribute("id", id);
+
+  el.addEventListener(
+    "dragstart",
+    (e) => {
+      e.dataTransfer.setData("text", e.target.id);
+      console.log(e.target.id)
+    },
+    false
+  );
+
+  el.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  el.addEventListener("drop", (e) => {
+    e.preventDefault();
+    let idOfDraggable = e.dataTransfer.getData("text");
+    const indexOfDraggable = [...listContainer.childNodes].findIndex(
+      (div) => div.id === idOfDraggable
+    );
+    listContainer.replaceChild(document.getElementById(idOfDraggable), e.currentTarget);
+   listContainer.insertBefore(e.currentTarget, listContainer.childNodes[indexOfDraggable])
+  });
 }
