@@ -2,12 +2,15 @@ const btnadd = document.querySelector("#addBtn");
 const listContainer = document.querySelector("#listContainer");
 const btnDeleteDefault = document.querySelector(".delete");
 const sortIcon = document.querySelector(".sort-icon");
+
 btnDeleteDefault.addEventListener("click", (e) => {
   e.preventDefault();
 });
 
-setDragDrop(document.querySelector('.input-box'));
+//setting drag and drop feature to default input box(div)
+setDragDrop(document.querySelector(".input-box"));
 
+// function for adding new item into to do list
 const addNewOrder = (e) => {
   e.preventDefault();
 
@@ -21,12 +24,13 @@ const addNewOrder = (e) => {
   newInput.classList.add("form-input");
   newInput.type = "text";
   newDeleteButton.classList.add("delete");
+  newDeleteButton.type = "button";
 
   // append elements
   listContainer.append(newInputBox);
   newInputBox.append(newInput, newDeleteButton);
 
-  setDragDrop(newInputBox)
+  setDragDrop(newInputBox);
 
   newDeleteButton.innerHTML = `<svg class="delete-svg"
         width="20"
@@ -57,30 +61,29 @@ const addNewOrder = (e) => {
       else btnDel.parentElement.firstElementChild.value = "";
     });
   });
-
-  /////////////////
-  // const listContainerChilds = Array.from(listContainer.children);
-
-
 };
 
+// add item into list
 btnadd.addEventListener("click", addNewOrder);
 
 // Sort orders
 sortIcon.addEventListener("click", (e) => {
   const listContainerChilds = Array.from(listContainer.children);
 
+  // if value of data-sort is "asc"
   if (listContainer.dataset.sort === "asc") {
+    // sort items in order ascending direction
     changeSortIcon("asc");
     listContainer.dataset.sort = "desc";
     listContainerChilds.sort((a, b) => {
       if (a.firstElementChild.value > b.firstElementChild.value) return 1;
       else return -1;
     });
+    // if value of data-sort is "desc"
   } else if (listContainer.dataset.sort === "desc") {
+    // sort items in order descending direction
     changeSortIcon("desc");
     listContainer.dataset.sort = "asc";
-
     listContainerChilds.sort((a, b) => {
       if (a.firstElementChild.value > b.firstElementChild.value) return -1;
       else return 1;
@@ -137,7 +140,7 @@ function changeSortIcon(dir) {
 }
 
 // Drag & Drop
-function setDragDrop(el)  {
+function setDragDrop(el) {
   el.setAttribute("draggable", true);
   const randomId1 = Math.floor(Math.random() * 10000) + 1;
   const randomId2 = Math.floor(Math.random() * 10000) + 1;
@@ -150,7 +153,7 @@ function setDragDrop(el)  {
     "dragstart",
     (e) => {
       e.dataTransfer.setData("text", e.target.id);
-      console.log(e.target.id)
+      console.log(e.target.id);
     },
     false
   );
@@ -165,7 +168,13 @@ function setDragDrop(el)  {
     const indexOfDraggable = [...listContainer.childNodes].findIndex(
       (div) => div.id === idOfDraggable
     );
-    listContainer.replaceChild(document.getElementById(idOfDraggable), e.currentTarget);
-   listContainer.insertBefore(e.currentTarget, listContainer.childNodes[indexOfDraggable])
+    listContainer.replaceChild(
+      document.getElementById(idOfDraggable),
+      e.currentTarget
+    );
+    listContainer.insertBefore(
+      e.currentTarget,
+      listContainer.childNodes[indexOfDraggable]
+    );
   });
 }

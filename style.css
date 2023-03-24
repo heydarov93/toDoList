@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap");
 
-:root {
+.hidden {
+  display: none !important;
 }
 
 * {
@@ -145,7 +146,6 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 
 .add-btn:hover {
   background-color: #7133c3;
