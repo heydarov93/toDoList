@@ -16,3 +16,8 @@ The main goal in this project is to demonstrate javascript skills. It also has a
 - Each field just a simple input
 - User can easily type and edit those input fields
 - each input have delete button at the right side
+
+### Used technologies and features
+***HTML 5***
+***CSS 3***
+***JavaScript***
