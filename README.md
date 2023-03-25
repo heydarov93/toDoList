@@ -18,6 +18,6 @@ The main goal in this project is to demonstrate javascript skills. It also has a
 - each input have delete button at the right side
 
 ### Used technologies and features
-***HTML 5***
-***CSS 3***
-***JavaScript***
+- HTML 5
+- CSS 3
+- JavaScript
