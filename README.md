@@ -2,6 +2,8 @@
 
 ### This _"To Do List"_ project given as a task by course.
 
+***<a href="https://todolist-yashar.netlify.app/">See To do list project</a>***
+
 ### What problems solves this project (brief overview)
 
 It makes it possible to add orders and tasks as text. User can edit, delete, sort orders (both ascending and descending). This is a simple project, it does not have a database to store orders.
