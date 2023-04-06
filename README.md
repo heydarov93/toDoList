@@ -1,6 +1,6 @@
 # To Do List Application
 This To Do List application was created as a course project for the It Academy. The application is a simple to-do list that allows users to add, edit, and delete tasks. The application has been built using HTML5, CSS3, and JavaScript.
-
+ 
 ### Features
 - Add tasks to the to-do list.
 - Edit tasks on the to-do list.
