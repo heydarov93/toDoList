@@ -19,6 +19,16 @@ To use the To Do List application, follow these steps:
 - Sort tasks by clicking on the "Sort Ascending" or "Sort Descending" button.
 - Drag and drop tasks to reorder them.
 
+### Installation
+To install the project on your local machine for development purposes, you can follow these steps:
+
+1. Clone the project repository to your local machine by running the following command in your terminal:
+- `git clone https://github.com/heydarov93/toDoList.git`
+2. Once the repository is cloned, navigate to the project directory:
+- `cd toDoList`
+3. Open the `index.html` file in your web browser to view the application.
+
+
 ### Contributing
 Contributions to the To Do List application are welcome. To contribute:
 
@@ -30,6 +40,3 @@ Create a pull request.
 
 ### Credits
 The To Do List application was created by <a href="https://www.linkedin.com/in/yashar-heydarov-4b8659261/">Yashar Heyderov</a> as a course project for the It Academy.
-
-### License
-The To Do List application is open source software licensed under the <a href="https://opensource.org/license/mit/">MIT license</a>.   
