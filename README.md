@@ -1,25 +1,35 @@
-# toDoList
+# To Do List Application
+This To Do List application was created as a course project for the It Academy. The application is a simple to-do list that allows users to add, edit, and delete tasks. The application has been built using HTML5, CSS3, and JavaScript.
 
-### This _"To Do List"_ project given as a task by course.
+### Features
+- Add tasks to the to-do list.
+- Edit tasks on the to-do list.
+- Delete tasks from the to-do list.
+- Sort tasks by ascending or descending order.
+- Drag and drop tasks to reorder them.
 
-***<a href="https://todolist-yashar.netlify.app/">See To do list project</a>***
 
-### What problems solves this project (brief overview)
+### Usage
+To use the To Do List application, follow these steps:
 
-It makes it possible to add orders and tasks as text. User can edit, delete, sort orders (both ascending and descending). This is a simple project, it does not have a database to store orders.
-The main goal in this project is to demonstrate javascript skills. It also has a drag-and-drop feature. The user can replace the list items with the help of "drag-and-drop" feature.
+- Visit the deployed website at ***<a href="https://todolist-yashar.netlify.app/">See To Do List Application</a>***
+- Click the "Add" button and enter the task you would like into the field that appeared.
+- Edit a task by clicking on the task name and editing the text.
+- Delete a task by clicking the "x" button next to the task.
+- Sort tasks by clicking on the "Sort Ascending" or "Sort Descending" button.
+- Drag and drop tasks to reorder them.
 
-##### Add item
+### Contributing
+Contributions to the To Do List application are welcome. To contribute:
 
-- By default it has a empty input field
-- User can't delete default input but can remove text from it
-- At the bottom there is add button
-- When button is clicked it adds new empty field
-- Each field just a simple input
-- User can easily type and edit those input fields
-- each input have delete button at the right side
+Fork the repository.
+Create a new branch.
+Make your changes and commit them.
+Push your changes to your fork.
+Create a pull request.
 
-### Used technologies and features
-- HTML 5
-- CSS 3
-- JavaScript
+### Credits
+The To Do List application was created by <a href="https://www.linkedin.com/in/yashar-heydarov-4b8659261/">Yashar Heyderov</a> as a course project for the It Academy.
+
+### License
+The To Do List application is open source software licensed under the <a href="https://opensource.org/license/mit/">MIT license</a>.   
